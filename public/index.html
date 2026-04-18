@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THAHASSUL - Surah Yaseen Tafseer Exam Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/thahassul-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content wrap">
+        <div class="brand-lockup">
+          <img src="assets/thahassul-logo.png" alt="THAHASSUL logo" class="brand-logo" />
+          <div>
+            <div class="eyebrow">THAHASSUL</div>
+            <h1>Surah Yaseen Tafseer Exam Results</h1>
+            <p class="hero-text">A professional educational results portal with full-scorer leaderboards, group-wise rankings, protected mobile lookup, answer key, and class links.</p>
+            <div class="hero-actions">
+              <a href="#lookup" class="btn btn-primary">Check by Mobile Number</a>
+              <a href="#questions" class="btn btn-secondary">Questions & Answer Key</a>
+              <a href="#youtube" class="btn btn-secondary">Watch Classes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="stats-grid" id="stats"></section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">Top Full Scorers</span>
+            <h2>Top 10 Ladies and Top 10 Gents</h2>
+            <p>Ranked among full scorers only, ordered by earliest completion.</p>
+          </div>
+        </div>
+        <div class="leaders-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Top 10 Ladies</h3>
+              <span class="panel-badge">Full scorers only</span>
+            </div>
+            <div id="top-ladies" class="list-stack"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Top 10 Gents</h3>
+              <span class="panel-badge">Full scorers only</span>
+            </div>
+            <div id="top-gents" class="list-stack"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">Group Performance</span>
+            <h2>Full Scorers by Group</h2>
+            <p>Groups are ordered by the highest number of full scorers. Click any group to view the full-scoring participants from that group, sorted by completion order.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div id="groups-table" class="group-table"></div>
+        </div>
+      </section>
+
+      <section class="section-block" id="lookup">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">Protected Lookup</span>
+            <h2>Check Result by Mobile Number</h2>
+            <p>Mobile numbers are not displayed publicly. The lookup returns only name, group, and place.</p>
+          </div>
+        </div>
+        <div class="lookup-grid">
+          <article class="panel">
+            <div class="lookup-card">
+              <label for="mobileInput">Enter mobile number</label>
+              <div class="lookup-form">
+                <input id="mobileInput" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter your mobile number" />
+                <button id="lookupBtn" class="btn btn-primary">Check Result</button>
+              </div>
+              <p class="lookup-note">For production publishing, connect the included serverless function and keep <code>private/lookup_data.json</code> outside the public web folder.</p>
+              <div id="lookupResult" class="lookup-result empty">Enter a number to check result.</div>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="privacy-box">
+              <h3>Privacy-first publishing</h3>
+              <ul>
+                <li>Only Name, Group, and Place are shown.</li>
+                <li>Mobile numbers are not exposed in the public files.</li>
+                <li>The included API uses SHA-256 lookup matching.</li>
+                <li>Deploy on Cloudflare Pages or Netlify for production.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="questions">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">Exam Reference</span>
+            <h2>Questions and Answer Key</h2>
+            <p>Clean educational presentation for publication.</p>
+          </div>
+        </div>
+        <div id="questions-list" class="accordion-list"></div>
+      </section>
+
+      <section class="section-block" id="youtube">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">Learning Resources</span>
+            <h2>YouTube Class Links</h2>
+            <p>Include these directly in the published page for easy access.</p>
+          </div>
+        </div>
+        <div id="youtube-links" class="resource-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-content">
+        <div>
+          <strong>THAHASSUL</strong>
+          <p>Professional educational results portal.</p>
+        </div>
+        <div class="footer-meta" id="footer-meta"></div>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="groupDialog" class="group-dialog">
+    <div class="dialog-head">
+      <h3 id="dialogTitle">Group details</h3>
+      <button id="closeDialog" class="dialog-close" aria-label="Close">×</button>
+    </div>
+    <div id="dialogContent" class="dialog-content"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
